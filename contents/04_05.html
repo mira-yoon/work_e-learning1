@@ -1,0 +1,171 @@
+﻿<!doctype html>
+<!-- saved from url=(0013)about:internet -->
+<html lang="ko">
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+	<script type="text/javascript">
+		var currentPage = 05; // 현 페이지 번호
+	</script>
+	<!-- 전체 css 불러오기-->
+	<link rel="stylesheet" type="text/css" href="inc/css/import.css" />
+	<!-- 전체 js 불러오기-->
+	<script src="../../../common/inc/js/jquery.js"></script>
+	<script src="../../../common/inc/js/kofacAPI.js"></script>
+	<script type="text/javascript" src="inc/js/import.js"></script>
+
+	<script>
+		$(function () {
+
+			player = document.getElementById("videoPlayer");
+			setInterval(function () {
+
+				var nowtime = player.currentTime;
+				var alltime = player.duration;
+
+				if (nowtime > alltime - 5) {
+					$(".pop-btn").fadeIn();
+				} else {
+					$(".pop-btn").hide();
+				}
+			}, 1000)
+
+			// 팝업 열기
+			$(".pop-btn").click(function () {
+				$(".pop").fadeIn();
+			});
+
+			//팝업 닫기
+			$(document).on('click', ".pop-close", function(){
+				$(".pop").fadeOut();
+				$(".pop-btn").focus();
+			});
+
+		})
+	</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<script type="text/javascript" src="inc/js/menu.js"></script><!--  E : Footer -->
+		<div class="mov-box">
+			<video id="videoPlayer" class="viewer" autoplay>
+				<script>
+					movSrc();
+				</script>
+			</video>
+
+			<!-- 팝업버튼 -->
+			<a href="#" class="pop-btn" style="display:none;" title="팝업창 열기 : 레이어 팝업" tabindex="10">
+				<img src="img/content/btn_pop.png" />
+			</a>
+
+		</div><!-- //E: mov-box -->
+
+		<!-- 팝업 -->
+		<div class="pop">
+			<div class="pop-area">
+				<div class="pop-title">
+					<h2>STEAM 수업 체크리스트</h2>
+					<a href="#" class="pop-close" tabindex="10" title="팝업창 닫기">
+						<img src="img\content\btn_close.png" alt="팝업창 닫기" />
+					</a>
+				</div>
+				<div class="pop-con">
+					<div class="con-title">
+						<h3>STEAM 수업 체크리스트</h3>
+						<a href="down/04차시_STEAM 수업 체크 리스트.zip" class="btn-download" tabindex="10" title="다운로드 : 04차시_STEAM 수업 체크 리스트.zip"></a>
+					</div>
+
+					<div class="table-area">
+						<table>
+							<caption class="blind">STEAM 수업 체크리스트</caption>
+							<colgroup>
+								<col style="width: 11%;">
+								<col style="width: 12%">
+								<col style="width: 20%">
+								<col style="width: 50%;">
+								<col style="width: 7%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th colspan="2" scope="col" id="division">구분</th>
+									<th scope="col" id="element">요소</th>
+									<th scope="col" id="check-list">확인 사항</th>
+									<th scope="col" id="check">확인</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th colspan="2" rowspan="3" scope="row" id="goal" headers="division">STEAM 교육 목표</th>
+									<td headers="goal element">과학기술 흥미와 이해 </td>
+									<td class="align-left" headers="goal check-list">과학기술에 대한 흥미와 이해를 높일 수 있는가? </td>
+									<td headers="goal check">&nbsp;</td>
+								</tr>
+								<tr>
+									<td headers="goal element">과학기술 기반 융합적 사고력</td>
+									<td class="align-left" headers="goal check-list">과학기술 기반의 융합적 사고력을 함양할 수 있는가?</td>
+									<td headers="goal check">&nbsp;</td>
+								</tr>
+								<tr>
+									<td headers="goal element">과학기술 기반 문제해결력</td>
+									<td class="align-left" headers="goal check-list">과학기술 기반의 실생활 문제해결력을 함양할 수 있는가? </td>
+									<td headers="goal check">&nbsp;</td>
+								</tr>
+								<tr>
+									<th rowspan="5" scope="row" id="criteria" headers="division">STEAM 교수학습 준거</th>
+									<th scope="row" id="situation" headers="division criteria">상황 제시</th>
+									<td headers="criteria situation element">실생활 문제 </td>
+									<td class="align-left" headers="criteria situation check-list">전체 학습을 아우르며 학생이 흥미를 느끼고 몰입할 수 있는<br>실생활 문제를 다루고 있는가?</td>
+									<td headers="criteria situation check">&nbsp;</td>
+								</tr>
+								<tr>
+									<th rowspan="3" scope="row" id="creative" headers="division criteria">창의적 설계</th>
+									<td headers="criteria creative element">아이디어 발현 </td>
+									<td class="align-left" headers="criteria creative check-list">학생의 아이디어를 학습 활동에 반영할 수 있는 기회를 제공하고 있는가? </td>
+									<td headers="criteria creative check">&nbsp;</td>
+								</tr>
+								<tr>
+									<td headers="criteria creative element">산출물</td>
+									<td class="align-left" headers="criteria creative check-list">모둠별 또는 개인별로 유·무형의 다양한 산출물이 나타나도록 설계하고 있는가?</td>
+									<td headers="criteria creative check">&nbsp;</td>
+								</tr>
+								<tr>
+									<td headers="criteria creative element">협력</td>
+									<td class="align-left" headers="criteria creative check-list">학생이 협력할 수 있는 활동이 포함되어 있는가? </td>
+									<td headers="criteria creative check">&nbsp;</td>
+								</tr>
+								<tr>
+									<th scope="row" id="sensitivity" headers="division criteria">감성적 체험</th>
+									<td headers="criteria sensitivity element">성패의 경험</td>
+									<td class="align-left" headers="criteria sensitivity check-list">성공 또는 실패의 가치를 경험할 수 있는 기회를 제공하고 있는가?</td>
+									<td headers="criteria sensitivity check">&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="2" scope="row" id="evaluation" headers="division">STEAM 평가</th>
+									<td headers="criteria evaluation element">학습과 성장 </td>
+									<td class="align-left" headers="criteria evaluation check-list">학생의 학습과 성장을 돕는 방향으로 평가가 구성되고 있는가? </td>
+									<td headers="criteria evaluation check">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- //table-area -->
+				</div>
+				<!-- //pop-con -->
+			</div>
+			<!-- //pop-area -->
+		</div>
+		<!-- //pop -->
+		<script type="text/javascript" src="inc/js/footer.js"></script><!--  E : Footer -->
+
+	</div><!--  E : wrapper -->
+</body>
+
+</html>

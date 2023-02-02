@@ -1,0 +1,206 @@
+<!doctype html>
+<!-- saved from url=(0013)about:internet -->
+<html lang="ko">
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+	<script type="text/javascript">
+		var currentPage = 07; // 현 페이지 번호
+	</script>
+	<!-- 전체 css 불러오기-->
+	<link rel="stylesheet" type="text/css" href="inc/css/import.css" />
+	<!-- 전체 js 불러오기-->
+	<script src="../../../common/inc/js/jquery.js"></script>
+	<script src="../../../common/inc/js/kofacAPI.js"></script>
+	<script type="text/javascript" src="inc/js/import.js"></script>
+
+	<script>
+		$(function () {
+			var idx = 0
+			var keyLength = $(".key-con").length
+			$(".key-right").click(function () {
+				idx++
+				if (idx <= keyLength) {
+					$(".key-con").hide();
+					$(".key-con").eq(idx).show();
+				} else {
+					idx = keyLength - 1
+				}
+
+				if (idx + 1 == keyLength) {
+					$(".key-right").css({
+						'opacity': '0.5',
+						'pointer-events': 'none'
+					})
+					//마지막 페이지-말풍선 추가
+					var nextPage = '<button type="button" class="pageEnd" onClick="goNextPage()" tabindex="0">다음 버튼을 클릭 하세요. </button>'
+				  $(".key-point").append(nextPage)
+				} else {
+					$(".key-left").css({
+						'opacity': '1',
+						'pointer-events': 'auto'
+					})
+				}
+				page();
+			});
+
+			$(".key-left").click(function () {
+				idx--
+				if (idx >= 0) {
+					$(".key-con").hide();
+					$(".key-con").eq(idx).show();
+				} else {
+					idx = 0
+				}
+
+				if (idx == 0) {
+					$(".key-left").css({
+						'opacity': '0.5',
+						'pointer-events': 'none'
+					})
+				} else {
+					$(".key-right").css({
+						'opacity': '1',
+						'pointer-events': 'auto'
+					})
+				}
+				page();
+			});
+
+			// $(".btn-print").click(function () {
+			// 	window.print()
+			// });
+
+			$('.mov-box video').on("ended", function () {
+				$(".key-point").fadeIn();
+			});
+
+			$(".go-key-point").click(function() {
+				$("#videoPlayer").get(0).pause();
+				$(".key-point").fadeIn();
+			});
+
+
+		 function page(){
+ 			$(".key-page .now-pg").html(idx + 1)
+ 			$(".key-page .total-pg").html(keyLength)
+ 		 }
+		page();
+		});
+
+		
+
+	</script>
+
+</head>
+
+<body>
+	<a href="#key-point" class="go-key-point" tabindex="1">핵심 정리 영역 바로가기</a>
+	<div id="wrapper">
+		<script type="text/javascript" src="inc/js/menu.js"></script><!--  E : Footer -->
+		<div class="mov-box">
+			<video id="videoPlayer" class="viewer" autoplay>
+				<script>
+					movSrc();
+				</script>
+			</video>
+		</div>
+		 <div id="key-point" class="key-point" style="display:none;">
+			<div class="key-box">
+				<div class="key-title">
+					<img src="img/content/text_01.png" title="핵심정리" />
+				</div>
+				<a href="down/04차시_핵심정리.zip" class="btn-fileDownload">파일 다운로드</a>
+					<!-- <a href="#" class="btn-print">인쇄하기</a> -->
+					<!-- 포팅 시 인쇄기능에 오류가 있어서 다운로드로 변경함 -->
+
+				<!-- 1페이지 -->
+				<div class="key-con" style="display:block;">
+					<div class="con-title">
+						<h3>
+							<span>1</span>
+							STEAM 수업, 어떻게 시작할까?
+						</h3>
+					</div>
+
+					<div class="text-box">
+						<h4>STEAM 주제찾기의 6가지 제안 </h4>
+						<p>① 학생의 흥미를 찾아라! </p>
+						<p>② 대중매체를 활용하여 사회적 이슈를 찾아라! </p>
+						<p>③ 다양한 교과서를 분석하라! </p>
+						<p>④ 학교 구성원과 충분히 소통하라! </p>
+						<p>⑤ 검색엔진을 활용하여 사람들의 흥미를 분석하라! </p>
+						<p>⑥ STEAM사이트(steam.kofac.re.kr)를 활용하라! </p>
+					</div>
+				</div>
+
+				<!-- 2페이지 -->
+				<div class="key-con">
+					<div class="con-title">
+						<h3>
+							<span>2</span>
+							STEAM 수업 계획
+						</h3>
+					</div>
+
+					<div class="text-box">
+						<h4>교과 연계 활용 </h4>
+						<p class="p-type-01">교사연구회 없을 경우 : 동일학년 담당교사와 편성하는 것이 효율적 </p>
+						<p class="p-type-01">교사연구회 있을 경우 : 연구회 소속교사의 교과를 고려하여 수업주제 선정 </p>
+					</div>
+
+					<div class="text-box">
+						<h4>교육과정 탐색 </h4>
+						<p class="p-type-01">교육과정 속 내용요소, 성취기준, 평가 등 고려 </p>
+						<p class="p-type-01">교육과정에서 벗어나는 내용으로 성취기준이 없을 때에는 가급적 창의적 체험활동 수업과 연계 </p>
+					</div>
+				</div>
+
+				<!-- 3페이지 -->
+				<div class="key-con">
+					<div class="con-title">
+						<h3>
+							<span>3</span>
+							STEAM 수업 실천
+						</h3>
+					</div>
+
+					<div class="text-box">
+						<h4>STEAM 교육 교수학습 준거 선정 시 유의사항 </h4>
+						<p class="p-type-01">상황 제시는 가급적 한 번만 제시 </p>
+						<p class="p-type-01">STEAM 수업 체크리스트를 통해 교수학습 준거가 적합한지 점검 </p>
+						<p class="p-type-01">STEAM 수업 체크리스트 : </p>
+						<ul>
+							<li>모둠 구성의 통일성 </li>
+							<li>수업 준비물 정리 및 구입하기 </li>
+							<li>수업 자료 준비하기 </li>
+							<li>STEAM 수업 장소 결정하기 </li>
+							<li>수업시간표 변경하기 </li>
+							<li>학생들에게 공지하기 </li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="key-page">
+
+<a href="#" class="key-left"></a>
+<span class="now-pg"></span> / <span class="total-pg"></span>
+<a href="#" class="key-right"></a>
+				</div>
+
+			</div><!--  E : key-box -->
+
+
+
+		</div><!--  E : key-point -->
+		<script type="text/javascript" src="inc/js/footer.js"></script><!--  E : Footer -->
+	</div><!--  E : wrapper -->
+</body>
+
+</html>

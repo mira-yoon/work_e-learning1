@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+/* 러닝맵 레이아웃 */
+body.runing-bg{background:#fff; counter-reset:section;}
+.running-map{position: absolute; top:0; left:0; width:100%; height:100%; z-index: 999; background:rgba(0,0,0,0.8);}
+.running-map .run-box{position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); width:80%; height:80%;}
+.running-map iframe{ width:100%; height:100%; border:0;}
+.run-close{position:absolute; top:5px; right:5px; width:40px; height: 40px; font-weight: normal; border: none; background: none; cursor: pointer; }
+
+.run-close div.close-mark span{position:absolute; top: 18px; right: 0px; width:100%; height:2px; background: #fff;}
+.run-close div.close-mark span:nth-child(1){transform: rotateZ(135deg)}
+.run-close div.close-mark span:nth-child(2){transform: rotateZ(-135deg)}
+
+#runningMap table{width:100%;}
+#runningMap table td{vertical-align: top;}
+
+/* 타이틀 컬러값 */
+#runningMap .color{color:#fff; background:#1e90ff;}
+
+/* 러닝맵 타이틀 */
+#runningMap h1{font-size:20px; height: 50px; font-weight: normal;}
+#runningMap h1::before{display:inline-block; text-align: center; content: "\f041"; width:50px; height:100%; font-size:30px; font-family: 'Fontawesome';  line-height: 165%; padding-top:0px; margin-right:10px; background:#185da0;}
+
+/* 과정정보 */
+#runningMap .suject-list{padding:20px;}
+#runningMap .suject-list h2{color:#000; font-size:22px; font-weight: bold; margin-bottom:10px;}
+#runningMap .suject-list h2::before{content: "\f180"; color:#999; margin-right:8px; font-family: 'Fontawesome'; }
+
+/* 차시정보 */
+#runningMap .suject-list ul{padding-left:30px;}
+#runningMap .suject-list li{position:relative; color:#666; font-size:17px; line-height: 170%; padding-left:40px; margin-bottom:19px; letter-spacing: -1.5px; word-break:keep-all;}
+#runningMap .suject-list li::before{position:absolute; left:0; color:#fff; width:30px; vertical-align:top; text-align:center; margin-right:8px;  background:#999; counter-increment: section; content: counter(section); border-radius: 4px}
+#runningMap .suject-list li.active{color:#000; font-weight: bold;}
+#runningMap .suject-list li.active::before{background:#1e90ff;}

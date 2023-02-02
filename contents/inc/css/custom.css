@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+/* 팝업버튼 */
+.pop-btn {position: absolute; bottom:5%; left:3%; z-index: 99; cursor: pointer;}
+.pop-btn img{width:auto;}
+
+/* 팝업 */
+.pop{display:none; position: absolute; top:0; width:100%; height:100%; padding:20px; background:rgba(0,0,0,0.5); z-index: 99999;}
+.pop-close{position: absolute; top:7px; right:8px; width:24px; height:24px; cursor: pointer;}
+.pop-area{width:100%; height: 100%;}
+.pop-area .pop-title{position:relative; background:#6939dd;}
+.pop-area .pop-title h2{color:#fff; font-size:16pt; }
+.pop-area .pop-title h2::before{display:inline-block; content:''; width:40px; height:40px; margin-right:10px; background:url('../../img/content/title_icon.png') #442393 center no-repeat;}
+.pop-area .pop-con {height:calc(100% - 80px); padding: 35px 20px; background:#fff;}
+.pop-area .pop-con .con-title{position: relative; margin-bottom:30px;}
+.pop-area .pop-con h3{line-height:120%; text-align:center; color:#6939dd; font-size:18pt; font-family: 'yg-jalnan';}
+.pop-area .pop-con h3::before,
+.pop-area .pop-con h3::after{color:#e0dbf3; vertical-align: middle;}
+.pop-area .pop-con h3::before{content:'['; margin-right:10px;}
+.pop-area .pop-con h3::after{content:']'; margin-left:10px;}
+
+
+.pop-area .table-area{width:90%; margin: 0 auto;}
+.pop-area table {width:100%; }
+.pop-area table th,
+.pop-area table td{padding:8px; border:1px solid #666;letter-spacing: -0.5px;}
+.pop-area table th{font-family: 'NanumSquareL';}
+.pop-area table td{color:#1e1e1e; font-family: 'NanumSquareL'; font-size:14px; font-weight: bold; line-height: 140%; text-align: center;}
+.pop-area table td.align-left{text-align: left;}
+.pop-area table td li{position:relative; padding-left:6px;}
+.pop-area table td li::before{content: '-'; position: absolute; left:0;}
+.pop-area table thead th{color:#fff; font-size:17px; font-weight: bold; background:#6ba7ee;}
+.pop-area table tbody th{color:#1e1e1e; font-size:14px; font-weight: bold; line-height: 140%; text-align: center;}
+
+
+
+/* 다운로드 버튼 */
+.btn-download{position: absolute; top:0; right:0; text-align:center; width:35px; height:35px; padding-top:5px;  border:4px solid #6939dd; border-radius: 50%; cursor: pointer;}
+.btn-download:hover{border:4px solid #d3c1ff; transition:all 0.5s ease;}
+.btn-download::before{content: "\f019"; color:#6939dd; font-size:20px; font-family: 'FontAwesome';}
+
+/* 핵심정리 */
+.key-point .text-box ul{margin: 5px 0 5px 20px;}
+.key-point .text-box li{position: relative; font-family: 'NanumSquareR'; font-weight: normal; font-size: 18px; padding-left: 20px;  line-height: 1.8;}
+.key-point .text-box li:before{content: '\f00c';  position: absolute; left: 0; font-family: 'FontAwesome'; font-size: 14px; color: #555;}
+
+

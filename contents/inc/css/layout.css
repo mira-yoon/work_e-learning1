@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+html, body {max-width: 100%; height:100%; background:#fff; overflow-x:hidden; }
+body{position: relative; background:#999; overflow: hidden;}
+
+/* 스킵 네비게이션 */
+#skip li {position:absolute; display:block; width:100%; top:-40px;}
+#skip a {overflow:hidden; width:1px; height:1px; font-size:18px; color:#fff; text-align:center; white-space:nowrap; padding-top: 12px; z-index:-999;}
+#skip a:focus, #skip a:active {position:absolute; width: 100%; height:40px; left: 2px; top:40px; background:rgba(0,0,0,0.5); z-index: 999;}
+
+/* 공통 */
+#wrapper {position:relative; width:1120px; height:670px; margin:0 auto; padding:0; background:#fff; overflow: hidden;}
+.title {position: absolute; width: auto; top: 0; z-index: 100;}
+
+
+/* 동영상 */
+.mov-box{position: relative; width:100%; height:calc(100% - 40px); margin:0 auto; z-index: 2;}
+.mov-box video{width:100%; height:100%;}
+div.preview{position: absolute !important; bottom: 15px; right: 68px;  width: 350px; height: 197px; border: 1px solid #333; padding: 0%; margin: 0; z-index: 99997;}
+
+/* 핵심정리 */
+.go-key-point{display:block; position:absolute; top:-100px; width:100%; background: rgba(0,0,0,0.5); color: #fff; font-size: 18px; height:40px; padding-top: 12px; text-align: center; z-index: 199;}
+.go-key-point:focus{top:0;}
+.key-point {display:block; position: absolute; top:0; left:0; width:100%; height:calc(100% - 40px);  background:url('../../img/content/09_09_bg.png') no-repeat; z-index: 99;}
+.key-point {padding:75px 67px 0 67px;}
+.key-point .key-box{position: relative;}
+.key-point .key-title{margin-bottom:20px;}
+.key-point .key-title img{width:auto;}
+.key-point .key-con{display:none; width:100%; height:508px; padding:23px 23px 0 15px; background:url('../../img/content/09_09_con.png') no-repeat; background-size:100%; }
+.key-point .key-con .con-title {position:relative;}
+.key-point .key-con .con-title h3{position:relative; color:#fff; font-size:26px; font-weight:bold; padding:15px 0; padding-left:48px; margin-bottom:30px; background:#365dcc;}
+.key-point .key-con .con-title h3 span{position:absolute; left:-5px; width:45px; height:43px; text-align:center; padding-top:5px; color:#fff; font-size:20px; font-family: 'yg-jalnan'; background:url('../../img/content/dt.png') no-repeat;}
+.key-point .key-con .text-box{padding-left:40px; margin-bottom:30px;}
+.key-point .key-con .text-box:last-child{margin-bottom:0; }
+.key-point .text-box h4{position:relative; color:#232323; font-size:24px; font-weight:bold; }
+.key-point .text-box h4::before{position:absolute; left:-25px; content: "\f055"; color:#365dcc; margin-right:7px; vertical-align:middle; font-family: 'FontAwesome';}
+.key-point .text-box p{position:relative; font-size:20px; font-weight: normal;}
+.key-point .text-box p.p-type-01{padding-left:15px;}
+.key-point .text-box p.p-type-01::before{content: '+'; position: absolute; left:0;}
+
+.key-point .btn-key a{position: absolute; top:60%; width:52px; height:80px; transform: translateY(-50%);}
+.key-point .btn-key a:hover{opacity: 0.5; transition:all 1s ease;}
+.key-point .btn-key a.key-left{left:10px; background:url('../../img/content/icon_left.png') no-repeat;}
+.key-point .btn-key a.key-right{right:0; background:url('../../img/content/icon_right.png') no-repeat;}
+
+.key-point .key-page {position: absolute; left:50%; bottom:10px; transform: translateX(-50%); padding:3px 6px; background:#d7d7d7; border-radius: 20px;}
+.key-point .key-page span{font-size:14px;}
+.key-point .key-page a{display:inline-block; font-size:20px; font-family: 'FontAwesome'; vertical-align: top;  line-height: 100%; margin:0 2px;}
+.key-point .key-page a.key-left::before{content: "\f137";}
+.key-point .key-page a.key-right::before{content: "\f138";}
+.key-point .key-page a:hover{color:#653ce5;}
+
+/* 핵심정리 다운로드 버튼 */
+.key-point .btn-fileDownload {position:absolute; top: 15.5%; right: 4.5%; color:#fff; font-size:20px; padding:9px; border:2px solid #fff; z-index: 9;}
+.key-point .btn-fileDownload:before {content:"\f019"; display: inline-block; color:#fff; font-family: "FontAwesome"; font-size: 25px; margin-right: 10px; margin-top: 2px; transition: color 1s;}
+.key-point .btn-fileDownload:hover {color:#365dcc; background: #69e9ff; border:2px solid #69e9ff; transition: all 1s;}
+.key-point .btn-fileDownload:hover:before {color:#365dcc;}
+
+/* .key-point .btn-print {position:absolute; top: 15.5%; right: 4.5%; color:#fff; font-size:20px; padding:9px 9px 9px 50px; background:url('../../img/content/icon_print.png') left 15px center no-repeat; border:2px solid #fff; z-index: 9;}
+.key-point .btn-print:hover{color:#365dcc; background:url('../../img/content/icon_print_on.png')#69e9ff left 15px center no-repeat; border:2px solid #69e9ff; transition: ease all 1s;} */
+
+
+
+/* IE 10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+  /* 핵심요약 */
+  .key-point .key-con .con-title h3 span{padding-top: 11px;}
+  
+}
+
+
+
+
+
+
+@media print {
+  html{width: 210mm; height: auto;}
+
+  footer, #left-menu, .title, .key-title, .btn-print, .btn-key a, video, .mov-box, .key-page, .pageEnd{display: none;}
+  .key-point, .key-point .key-con{background:none; }
+  .key-point{position: relative; padding:0;}
+  .key-point .key-con{display:block !important;  }
+  h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, blockquote, form, fieldset, legend, div,body { -webkit-print-color-adjust:exact; }
+
+}
+
+@page {
+  size : a4;
+  margin:15mm;
+  @page { margin: 0; }
+}

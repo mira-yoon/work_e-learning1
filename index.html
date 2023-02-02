@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script language="javascript" src="./aofcontent.v.1.0.0.js"></script>
+    <script src="contents/inc/js/jquery-3.3.1.min.js"></script>
+
+    <style>
+      body {margin: 0; padding: 0; background-color: #000;}
+      #contentFrame {display: block; width: 1120px; height: 670px; margin: 0 auto;}
+    </style>
+  
+    
+  	<script type="text/javascript" defer="defer">
+  			document.oncontextmenu = function (e) {
+  				alert("오른쪽버튼을 이용할 수 없습니다.");
+  			return false;
+  			}
+  	</script>
+
+    <script type="text/javascript" defer="defer">
+      var _linkList = new Array();
+      _linkList[0]='./contents/04_01.html';
+      _linkList[1]='./contents/04_02.html';
+      _linkList[2]='./contents/04_03.html';
+      _linkList[3]='./contents/04_04.html';
+      _linkList[4]='./contents/04_05.html';
+      _linkList[5]='./contents/04_06.html';
+      _linkList[6]='./contents/04_07.html';
+      _linkList[7]='./contents/04_08.html';
+
+      var _nowPageNum=0;
+      var _nowLinkList = new Array();
+      var _nowLastLinkList = new Array();
+      /**
+       * 시작
+       */
+      function initPage() {
+          var _totalPages = _linkList.length;
+          _setTotalPage(_totalPages); // 전체페이지수
+
+          var startPage = _linkList[0];
+          var location="";
+
+          var cmi_number=0;
+
+
+          var cmi_location = _getLocation(); // 마지막 학습 위치
+          for(var i=0;i<_linkList.length;i++){
+           if(_linkList[i]==cmi_location){
+             location = cmi_location;
+             cmi_number=i;
+           }
+          }
+
+          if (location != "" && location!="false") {
+             if (!confirm("이전에 학습하신 곳으로 이동 하시겠습니까?")) {
+                location = startPage;
+              }else{
+                _nowPageNum=cmi_number;
+              }
+            }else{
+              location = startPage;
+            }
+
+            window.frames["contentFrame"].location.href = location;
+
+      }
+
+
+      /**
+       * 현재 페이지
+       */
+      function setPage() {
+          page=-1;
+          var href = self.location.href;
+          var path = href.substring(0, href.lastIndexOf("/"));
+          var loca = window.frames["contentFrame"].location.href.replace(path, ".");
+          _nowLinkList = new Array();
+          for(var i=0;i<_linkList.length;i++){
+	        _nowLinkList[_nowLinkList.length]=_linkList[i];
+            if(_linkList[i]==loca){
+              _nowPageNum=i;
+              page=i;
+              break;
+            }
+          }
+          if(page==-1){
+            alert('컨텐츠 존재하지 않는 페이지 입니다.');
+            return;
+          }
+
+          _setPage(page, window.frames["contentFrame"].location.href); // 현재페이지
+      }
+
+      function goPage(idx){
+            var loadPage = _getLoadPage();
+            var alist = loadPage.split(";");
+            var regYn=0;
+            var href = self.location.href;
+            for(var i=0;i<alist.length;i++){
+              if(alist[i]==_linkList[idx]){
+                regYn=1;
+              }
+            }
+            if(regYn==1){
+             _nowPageNum=idx;
+             window.frames["contentFrame"].location.href = "."+_linkList[idx];
+            }else{
+              alert("학습 이후에 바로가기 가능합니다.");
+            }
+      }
+
+      function goNextPage(){
+        try{
+          if(_nowPageNum<=_linkList.length){
+
+              var href = self.location.href;
+              var path = href.substring(0, href.lastIndexOf("/"));
+              var loca = window.frames["contentFrame"].location.href.replace(path, ".");
+
+              var loadPage = _getLoadPage();
+              var regYn=0;
+              var setLoadPageinfo="";
+
+              if(loadPage==""){
+                setLoadPageinfo = loca;
+              }else{
+                var alist = loadPage.split(";");
+                for(var i=0;i<alist.length;i++){
+                  if(alist[i]==loca){
+                    regYn=1;
+                  }
+                }
+               if(regYn==0){
+				   _nowLastLinkList = new Array();
+				   var nowpagechk=0;
+				   for(var i=0;i<_linkList.length;i++){
+					 _nowLastLinkList[_nowLastLinkList.length]=_linkList[i];
+					  if(_linkList[i]==loca){
+						nowpagechk=1;
+					  }
+					 if(_linkList[i]==alist[alist.length-1]){
+					  break;
+					}
+				   }
+				   setLoadPageinfo = _nowLastLinkList.join(";");
+				   if(nowpagechk==0){
+					setLoadPageinfo = setLoadPageinfo+";"+loca;
+				   }
+               }
+              }
+              //  학습완료 여부 체크 2016.08.08 JDH
+              var player = window.frames["contentFrame"].KBRAINC_PLAYER;
+              var currentTime = player.getCurrentTime();
+              var durationTime = player.getDuration();
+
+
+	          if(setLoadPageinfo.split(";").length<_nowLinkList.length){
+			     setLoadPageinfo =  _nowLinkList.join(";");
+               }
+
+               if(regYn==0){
+                  try{
+                    if(currentTime < durationTime || !currentTime || !durationTime){
+                      alert('학습 미완료 상태입니다.');
+                      return;
+                    }else{
+                      _setLoadPage(setLoadPageinfo);
+                    }
+                  }catch(e){
+                    _setLoadPage(setLoadPageinfo);
+                  }
+
+               }
+              _nowPageNum = Number(_nowPageNum)+1;
+
+              window.frames["contentFrame"].location.href = "."+_linkList[_nowPageNum];
+          }else{
+            alert("마지막 페이지 입니다.");
+          }
+        }catch(e){
+        alert(e.message);
+      }
+
+      }
+
+      function goPrePage(){
+        try{
+        if(_nowPageNum>0){
+          _nowPageNum = Number(_nowPageNum)-1;
+          window.frames["contentFrame"].location.href = "."+_linkList[_nowPageNum];
+        }else{
+          alert("첫페이지 입니다.");
+        }
+      }catch(e){
+        alert(e.message);
+      }
+
+      }
+    </script>
+  </head>
+
+  <body scroll="no" ondragstart="return false" onselectstart="return false" oncontextmenu="return false" onload="initPage();">
+    <iframe id="contentFrame" scrolling="no" name="contentFrame" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </body>
+</html>
