@@ -1,5 +1,7 @@
 # 이러닝 컨텐츠
 
+[이러닝 컨텐츠로 바로가기](https://mira-yoon.github.io/work_e-learning1/)
+
 ### 소개
 이러닝 컨텐츠입니다.
 
